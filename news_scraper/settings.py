@@ -31,7 +31,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
-ROOT_URLCONF = 'newsscraper.urls'
+ROOT_URLCONF = 'news_scraper.urls'
 
 TEMPLATES = [
     {
@@ -98,13 +98,13 @@ if DEBUG is False:
 
     STATIC_LOCATION = 'static'
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
-    STATICFILES_STORAGE = 'newsscraper.storage_backends.StaticStorage'
+    STATICFILES_STORAGE = 'news_scraper.storage_backends.StaticStorage'
 
     # s3 public media settings
 
     PUBLIC_MEDIA_LOCATION = 'media'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
-    DEFAULT_FILE_STORAGE = 'newsscraper.storage_backends.PublicMediaStorage'
+    DEFAULT_FILE_STORAGE = 'news_scraper.storage_backends.PublicMediaStorage'
 
     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
