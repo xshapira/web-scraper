@@ -19,6 +19,7 @@ gunicorn = "*"
 celery = "*"
 django-celery-beat = "*"
 redis = "*"
+pyclean = "*"
 
 [requires]
 python_version = "3.8"
