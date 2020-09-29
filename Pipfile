@@ -20,6 +20,9 @@ celery = "*"
 django-celery-beat = "*"
 redis = "*"
 pyclean = "*"
+requests = "*"
+beautifulsoup4 = "*"
+selenium = "*"
 
 [requires]
 python_version = "3.8"

@@ -5,6 +5,7 @@ from celery.schedules import crontab
 
 env = environ.Env()
 
+
 DEBUG = env.bool("DEBUG")
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = env("SECRET_KEY")
@@ -66,9 +67,9 @@ CELERY_BROKER_URL = "redis://localhost:6379"
 # CELERY_IMPORTS = ["news_scraper.core"]
 # CELERY_TIMEZONE = "UTC"
 CELERY_BEAT_SCHEDULE = {
-    "send_scheduled_emails": {
-        "task": "core.tasks.send_scheduled_emails",
-        "schedule": crontab(minute="*/30"),  # every 30 minutes
+    "scrape_website": {
+        "task": "core.tasks.scrape_dev_to",
+        "schedule": 10,  # crontab(minute="*/30"),  # every 30 minutes
     }
 }
 
