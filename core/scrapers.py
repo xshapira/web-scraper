@@ -28,12 +28,16 @@ def scrape(url):
     try:
         WebDriverWait(browser, timeout).until(
             EC.visibility_of_element_located(
-                By.XPATH, "//div[@class='crayons-story__body']"
+                (By.XPATH, "//article[@class='crayons-story']")
             )
         )
     except TimeoutException:
         print("Timed out waiting for page to load")
         browser.quit()
 
+    # find all the elemnets with this class ==> 'crayons-story__body'
+    article_elements = browser.find_elements_by_xpath(
+        "//article[@class='crayons-story']"
+    )
 
-#
+    print(article_elements)
