@@ -9,11 +9,13 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 def scrape(url):
     options = webdriver.FirefoxOptions()
-    options.add_argument(" - incognito")
+    options.add_argument("-private")
 
     cap = DesiredCapabilities().FIREFOX
     cap["marionette"] = True
-    binary = FirefoxBinary("/Applications/Firefox.app/Contents/MacOS/firefox-bin")
+    binary = FirefoxBinary(
+        "/Applications/Firefox Developer Edition.app/Contents/MacOS/firefox-bin"
+    )
     browser = webdriver.Firefox(
         executable_path="./geckodriver",
         firefox_options=options,
@@ -40,4 +42,9 @@ def scrape(url):
         "//article[@class='crayons-story']"
     )
 
-    print(article_elements)
+    for article in article_elements:
+        # try to get the anchor tag and href
+
+        result = article.find_elements_by_xpath("//h2[@class='crayons-story_title']")
+
+        print(result)
