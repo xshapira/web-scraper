@@ -8,4 +8,4 @@ class NewsItem(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.link[0:50]
+        return self.link[:50]
